@@ -17,7 +17,7 @@
             max-width: 800px;
             height: 400px;
             margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0); /* 透過 */
+            background-color: rgba(255, 255, 255, 0);
         }
 
         .swiper-slide img {
@@ -26,6 +26,16 @@
             object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* 矢印の色調整（見やすさ向上） */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+        }
+
+        .swiper-pagination-bullet {
+            background: white;
         }
     </style>
 </head>
@@ -37,7 +47,6 @@
             <div class="swiper-slide"><img src="2.png" alt="Slide 2"></div>
             <div class="swiper-slide"><img src="3.png" alt="Slide 3"></div>
         </div>
-        <!-- ページネーション・矢印 -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
@@ -47,6 +56,10 @@
     <script>
         const swiper = new Swiper('.swiper', {
             loop: true,
+            effect: 'fade', // ← ここがポイント！
+            fadeEffect: {
+                crossFade: true
+            },
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
@@ -58,10 +71,6 @@
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
             },
         });
     </script>
